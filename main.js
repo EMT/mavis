@@ -105,7 +105,7 @@ function drawLinesRealTime() {
         scrollTop: 0
     }, interval, "linear", function() {
         saveOldCanvas(function() {
-            $(window).scrollTop($(window).scrollTop() + $(".js-paper").height() - $('.js-paper').height() + $('.js-paper img').height());
+            $(window).scrollTop($(window).scrollTop() + $('.js-paper img').height());
         });
     });
 }
