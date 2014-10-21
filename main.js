@@ -1,7 +1,7 @@
 var canvas = document.getElementById("js-canvas");
 var context = canvas.getContext("2d");
 var start = new Date().getTime();
-var interval = 2000.0; //time between AJAX requests in MS
+var interval = 20000.0; //time between AJAX requests in MS
 var canvasHeight = interval/10;
 
 //fromTime is the time that indicates when the database query should search *from*  
