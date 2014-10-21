@@ -111,34 +111,29 @@ var sources = [];
 var gainNodes = [];
 
 
-$(".js-key").mousedown(function(e){
-  source = audioContext.createBufferSource();
+// $(".js-key").mousedown(function(e){
+//   source = audioContext.createBufferSource();
 
-  gainNode1 = audioContext.createGain();
+//   gainNode1 = audioContext.createGain();
 
-  gainNode1.gain.value = 0.5;
+//   gainNode1.gain.value = 0.5;
 
-  // source.buffer = bufferLoader.bufferList[$(this).index(".js-key")];
-  source.buffer = bufferLoader.bufferList[currentSoundIndex];
+//   // source.buffer = bufferLoader.bufferList[$(this).index(".js-key")];
+//   source.buffer = bufferLoader.bufferList[currentSoundIndex];
 
-  source.playbackRate.value = Math.pow(Math.pow(2, 1/12), $(this).index(".js-key") - 6 );
+//   source.playbackRate.value = Math.pow(Math.pow(2, 1/12), $(this).index(".js-key") - 6 );
 
-  console.log(Math.pow(2, 1/12) * $(this).index(".js-key"));
+//   console.log(Math.pow(2, 1/12) * $(this).index(".js-key"));
 
-  source.connect(gainNode1);
+//   source.connect(gainNode1);
 
-  gainNode1.connect(audioContext.destination)
+//   gainNode1.connect(audioContext.destination)
 
-  source.start(0);
+//   source.start(0);
 
-})
+// })
 
-// $("body").mouseup(function(e){
-//   gainNode1.gain.value = 0;
-//   // gainNode2.gain.value = 0;
-// });
-
-$("#js-sound-changer").change(function(){
-  currentSoundIndex = $(this).val();
-  console.log('change')
-})
+// $("#js-sound-changer").change(function(){
+//   currentSoundIndex = $(this).val();
+//   console.log('change')
+// })
