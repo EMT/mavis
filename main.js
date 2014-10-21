@@ -47,22 +47,11 @@ function getAjaxData(){
             drawLines(data);
             drawLinesRealTime();
         } else {
+
         }
         toTime = toTime + interval;
     });
 } 
-
-
-var noteInstances = {
-    0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-};
 
 
 var lines = [];
@@ -83,8 +72,6 @@ function drawLines(noteInstances) {
     }
 
 }
-
-drawLines(noteInstances);
 
 function calcNoteLengthInPixels(durationInMS) {
     return canvasHeight * (durationInMS / interval);
@@ -119,7 +106,7 @@ function saveOldCanvas(callback) {
     // Restore the transform
     context.restore();
 
-    drawLines(noteInstances);
+    // drawLines(noteInstances);
 
     callback();
 }
