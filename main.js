@@ -1,6 +1,6 @@
 var canvas = document.getElementById("js-canvas");
 var context = canvas.getContext("2d");
-var interval = 20000.0; //time between AJAX requests in MS
+var interval = 10000.0; //time between AJAX requests in MS
 var canvasHeight = interval/10;
 var pageWidth = $(document).width();
 
@@ -10,8 +10,8 @@ var toTime = new Date().getTime();
 var fromTime = toTime - interval;
 
 
-canvas.height=canvasHeight;
-canvas.width=$('.js-paper').width();
+canvas.height = canvasHeight;
+canvas.width = $('.js-paper').width();
 
 var Line = function(x, y, length, color) {
     this.x = x;
@@ -35,7 +35,6 @@ getAjaxData();
 
 var timeoutID = setInterval(function(){
     getAjaxData();
-
 },interval)
 
 
@@ -56,16 +55,14 @@ function getAjaxData(){
 
 var lines = [];
 function drawLines(noteInstances) {
-    fromTime = new Date().getTime() - interval;
     for (var i = 0 ; i < noteInstances.length ; i++){
-        keyIndex = Math.abs(7 - noteInstances[i]["key_id"]);
-        console.log(keyIndex)
-        lineOffset = $("#0").width() / 2;
+        var keyIndex = Math.abs(7 - noteInstances[i]["key_id"]);
+        var lineOffset = $("#0").width() / 2;
         var X = (pageWidth / 8) * keyIndex + lineOffset + 2.5;
         var noteColor = $("#" + keyIndex).css('color');
         var startY = canvasHeight - (noteInstances[i]["`on`"]  - fromTime)* canvasHeight / interval;
         var length = calcNoteLengthInPixels(noteInstances[i].duration);
-        line = new Line(X, startY, length, noteColor);
+        var line = new Line(X, startY, length, noteColor);
         line.draw();
         lines.push(line);
         console.log(fromTime);
