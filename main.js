@@ -1,13 +1,12 @@
 var canvas = document.getElementById("js-canvas");
 var context = canvas.getContext("2d");
-var start = new Date().getTime();
 var interval = 20000.0; //time between AJAX requests in MS
 var canvasHeight = interval/10;
 
 //fromTime is the time that indicates when the database query should search *from*  
 //toTime is the time that indicates when the database query should search *to*  
-var fromTime;
-var toTime = start;
+var toTime = new Date().getTime();
+var fromTime = toTime - interval;
 
 
 canvas.height=canvasHeight;
@@ -35,7 +34,7 @@ getAjaxData();
 
 var timeoutID = setInterval(function(){
     getAjaxData();
-    drawLinesRealTime();
+
 },interval)
 
 
@@ -43,9 +42,12 @@ var timeoutID = setInterval(function(){
 function getAjaxData(){
     fromTime = toTime-interval;
     $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime)+"&to="+toTime, function( data ) {
-      //draw lines with newly loaded data
-      drawLines(data);
-      toTime = toTime + interval;
+        if (data.length > 0){
+            drawLines(data);
+            drawLinesRealTime();
+        } else {
+        }
+        toTime = toTime + interval;
     });
 } 
 
