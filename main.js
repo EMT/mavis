@@ -100,10 +100,9 @@ function calcNoteLengthInPixels(durationInMS) {
 // Code to draw the lines and scroll to the corrent location.
 function drawLinesRealTime() { 
     var orgHeight = $(".js-paper").height();
-    var heightOffset = $('.content').height();
 
     $('body').animate({
-        scrollTop: heightOffset
+        scrollTop: 0
     }, interval, "linear", function() {
         saveOldCanvas(function() {
             $(window).scrollTop($(window).scrollTop() + $(".js-paper").height() - $('.js-paper').height() + $('.js-paper img').height());
