@@ -84,14 +84,7 @@ function drawLines(noteInstances) {
 
 }
 
-
-function drawSetOfLines(rawData) {
-    parsedData = noteInstances;
-    $('.js-key').removeClass('active'); // this is for testing - its as inefficient as spitting on a fire.
-    drawLines(parsedData);
-}
-
-drawSetOfLines(data);
+drawLines(noteInstances);
 
 function calcNoteLengthInPixels(durationInMS) {
     return canvasHeight * (durationInMS / interval);
@@ -126,7 +119,7 @@ function saveOldCanvas(callback) {
     // Restore the transform
     context.restore();
 
-    drawSetOfLines(data);
+    drawLines(noteInstances);
 
     callback();
 }
