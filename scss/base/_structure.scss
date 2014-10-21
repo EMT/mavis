@@ -1,0 +1,28 @@
+html{
+	-webkit-text-size-adjust: 100%;
+}
+
+html, body{
+	
+}
+
+body{
+	background:$grey--light;
+}
+
+.wrapper{
+	margin:0 auto;
+	padding: 0 20px;
+	@include border-box;
+	width:100%;
+	max-width: 1180px + 40px;
+}
+
+section{
+	margin:40px 0;
+	overflow:hidden;
+
+	h2{
+		margin-bottom:20px;
+	}
+}

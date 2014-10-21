@@ -1,0 +1,74 @@
+.header{
+}
+
+.header-upper{
+	background:$blue;
+	height:90px;
+
+	img, h2, .login{
+		color:white;
+		float:left;
+		line-height: 90px;
+	}
+
+	img{
+		margin-top:20px;
+		margin-right:60px;
+	}
+
+	.login{
+		float:right;
+	}
+}
+
+.header-lower{
+	background:$turquoise;
+	overflow:hidden;
+
+	h1, .contact-links, a{
+		// float:left;
+		color:$white;
+		text-decoration: none;
+		margin:30px 0;
+	}
+
+}
+
+.header-lower-left{
+	float:left;
+	width:50%;
+}
+
+.header-lower-right{
+	background:$turquoise--light;
+	width: 50%;
+	float: right;
+	overflow:hidden;
+	height:220px;
+}
+
+.header-lower-right-wrapper{
+	padding: 15px 0;
+}
+
+.header-stat-wrapper{
+	width:50%;
+	float:left;
+	text-align:center;
+}
+
+.header-stat-wrapper:first-child{
+	border-right:solid 1px white;
+	@include border-box;
+}
+
+.header-stat-label{
+	color:$white;
+	margin-top:45px;
+}
+
+.header-stat-value{
+	color:$blue;
+	font-size:65px;
+	margin-bottom:30px; //to make white line go to close to bottom
+}

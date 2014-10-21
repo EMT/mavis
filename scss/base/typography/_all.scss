@@ -1,0 +1,60 @@
+body {
+	color: $grey;
+	font: $font-weight #{$font-base + "px"}/#{$line-height} $font-family;
+}
+
+small {
+	font-size: $small;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+
+// styles for all headings, in the style of @csswizardry
+.hN {
+	text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
+	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
+	margin-top: 0;
+	color: $grey--dark;
+	font: $font-weight #{$font-base + "px"}/#{$line-height} $font-family;
+	font-family: Codystar;
+}
+
+h1, .h1 {
+	@extend .hN;
+	font-size:50px;
+	text-align:center;
+}
+
+h2, .h2 {
+	@extend .hN;
+}
+
+h3, .h3 {
+	@extend .hN;
+}
+
+h4, .h4 {
+	@extend .hN;
+}
+
+p {
+	margin: auto auto $indent-val;
+}
+
+a{
+	color:$grey;
+	@include vendorize(transition, all 0.5s);
+
+	&:hover{
+		opacity: 0.75;
+		@include vendorize(transition-duration, 0s);
+	}
+}
+

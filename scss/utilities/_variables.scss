@@ -1,0 +1,41 @@
+//color naming convention: (based on those at http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/)
+// Start with the base color, then progress to dark or light, which allows you to then move to mid or extra (x) dark/light later on
+//x-dark
+//dark
+// mid-dark
+// base (default)
+// mid-light
+// light
+// x-light
+
+
+//color palette.
+$blue: rgb(0, 63, 105);
+$turquoise: rgb(139, 174, 162);
+$turquoise--light: rgb(162, 190, 181);
+$white: rgb(255,255,255);
+$grey--dark: rgb(109, 110, 112);
+$grey: rgb(165, 167, 170);
+$grey--mid-light: rgb(179, 179, 179);
+$grey--light: rgb(207, 209, 210);
+$grey--x-light: rgb(238, 238, 238); //page background
+
+
+// $font-family:Codystar;
+$font-family:Arial;
+$font-weight: normal;
+$line-height: 1.4; //use unitless line-heights
+$font-base: 16; //units = pixels
+
+
+// $Paragraphs
+// -------------------------------------//
+
+// Text Indentation Value
+$indent-val: 1.5em;
+
+// Paragraph Styling Boolean
+// 'false' means no vertical whitespace
+// between subsequent paragraphs.
+$paragraph-vertical-whitespace: false;
+$small: 0.75;

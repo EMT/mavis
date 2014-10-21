@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="play-machine-header">
+<!-- 	<p>Musically</p>
+	<p>Articulated</p>
+	<p>Visual</p>
+	<p>Illustration</p>
+	<p>System</p>
+	<p>About</p> -->
+		<div class="wrapper">
+			<p>MAVIS</p>
+			<label for="">Load different Sound</label>
+			<select name="" id="js-sound-changer">
+				<option value="0">Synth Lead</option>
+				<option value="1">Rhodes</option>
+				<option value="2">Bass</option>
+				<option value="3">Orchestra</option>
+			</select>
+			<p><a href="#" class="history">Show me the History!</a></p>
+		</div>
+		<div class="wrapper key-bar">
+		   <div class="play-machine_key js-key key_zero" id="0"></div><!--
+		--><div class="play-machine_key js-key key_one" id="1"></div><!--
+		--><div class="play-machine_key js-key key_two" id="2"></div><!--
+		--><div class="play-machine_key js-key key_three" id="3"></div><!--
+		--><div class="play-machine_key js-key key_four" id="4"></div><!--
+		--><div class="play-machine_key js-key key_five" id="5"></div><!--
+		--><div class="play-machine_key js-key key_six" id="6"></div><!--
+		--><div class="play-machine_key js-key key_seven" id="7"></div>
+		</div>
+	</div>
+	<div class="wrapper play-machine-body">
+		<div class="wrapper--inner">
+			<div class="play-machine">
+				<div class="play-machine_paper js-paper">
+					<canvas id='js-canvas'></canvas>
+					<div id="endOfPage">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src='main.js'></script>
+	<script src='audio.js'></script>
+	<script src='note-history-data.js'></script>
+</body>
+</html>

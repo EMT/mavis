@@ -1,0 +1,23 @@
+.pagination-wrapper{
+	width:32%;
+	margin:0 auto;
+	padding-top:10px;
+	text-align:center;
+	border-top:solid 1px $grey--mid-light;
+
+	a{
+		text-decoration: none;
+		padding:0 7px;
+	}
+
+	.ss-symbolicons{
+		padding:0;
+	}
+}
+
+.pagination--left{
+	float:left;
+}
+.pagination--right{
+	float:right;
+}

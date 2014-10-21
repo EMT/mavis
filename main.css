@@ -1,0 +1,519 @@
+@charset "UTF-8";
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+* html .clearfix {
+  zoom: 1; }
+
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1; }
+
+/* IE7 */
+.pull-right {
+  float: right; }
+
+.intrinsic-ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 80px; }
+
+.fill-parent {
+  margin-bottom: 80px;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.circular {
+  border-radius: 50%; }
+
+.breakword {
+  word-wrap: break-word; }
+
+.show--small {
+  display: none; }
+
+@media (max-width: 782px) {
+  .show--small {
+    display: block; } }
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+
+.contact-links a {
+  text-decoration: none; }
+  .contact-links a span {
+    position: relative;
+    top: 2px;
+    padding-right: 3px; }
+
+html {
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  background: #cfd1d2; }
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 20px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1220px; }
+
+section {
+  margin: 40px 0;
+  overflow: hidden; }
+  section h2 {
+    margin-bottom: 20px; }
+
+body {
+  color: #a5a7aa;
+  font: normal 16px/1.4 Arial; }
+
+small {
+  font-size: 0.75; }
+
+em {
+  font-style: italic; }
+
+strong {
+  font-weight: bold; }
+
+.hN, h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #6d6e70;
+  font: normal 16px/1.4 Arial;
+  font-family: Codystar; }
+
+h1, .h1 {
+  font-size: 50px;
+  text-align: center; }
+
+p {
+  margin: auto auto 1.5em; }
+
+a {
+  color: #a5a7aa;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+  a:hover {
+    opacity: 0.75;
+    -webkit-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s; }
+
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2012 Oak Studios LLC
+*
+* Upload this file to your web server
+* and place this within your <head> tags.
+* <link href="webfonts/ss-social.css" rel="stylesheet" />
+*/
+@font-face {
+  font-family: "SSSocial";
+  src: url("../assets/fonts/ss-social/ss-social-regular.eot");
+  src: url("../assets/fonts/ss-social/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/ss-social/ss-social-regular.woff") format("woff"), url("../assets/fonts/ss-social/ss-social-regular.ttf") format("truetype"), url("../assets/fonts/ss-social/ss-social-regular.svg#SSSocialRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+html:hover [class^="ss-"] {
+  -ms-zoom: 1; }
+
+.ss-icon, .ss-icon.ss-social, .ss-icon.ss-social-circle,
+[class^="ss-"]:before, [class*=" ss-"]:before,
+[class^="ss-"][class*=" ss-social"]:before, [class*=" ss-"][class*=" ss-social"]:before,
+[class^="ss-"].right:after, [class*=" ss-"].right:after,
+[class^="ss-"][class*=" ss-social"].right:after, [class*=" ss-"][class*=" ss-social"].right:after {
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased; }
+
+.ss-icon.ss-social-circle,
+[class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before,
+[class^="ss-"].ss-social-circle.right:after, [class*=" ss-"].ss-social-circle.right:after {
+  font-weight: bold; }
+
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2012 Oak Studios LLC
+*
+* Upload this file to your web server
+* and place this within your <head> tags.
+* <link href="webfonts/ss-symbolicons-block.css" rel="stylesheet" />
+*/
+@font-face {
+  font-family: "SSSymbolicons";
+  src: url("../assets/fonts/ss-symbolicons/ss-symbolicons-block.eot");
+  src: url("../assets/fonts/ss-symbolicons/ss-symbolicons-block.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/ss-symbolicons/ss-symbolicons-block.woff") format("woff"), url("../assets/fonts/ss-symbolicons/ss-symbolicons-block.ttf") format("truetype"), url("../assets/fonts/ss-symbolicons/ss-symbolicons-block.svg#SSSymboliconsBlock") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+html:hover [class^="ss-"] {
+  -ms-zoom: 1; }
+
+.ss-symbolicons,
+[class^="ss-"]:before, [class*=" ss-"]:before,
+[class^="ss-"].ss-symbolicons-block:before, [class*=" ss-"].ss-symbolicons-block:before,
+[class^="ss-"].right:after, [class*=" ss-"].right:after,
+[class^="ss-"].ss-symbolicons-block.right:after, [class*=" ss-"].ss-symbolicons-block.right:after {
+  font-family: "SSSymbolicons";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased; }
+
+.header-upper {
+  background: #003f69;
+  height: 90px; }
+  .header-upper img, .header-upper h2, .header-upper .login {
+    color: white;
+    float: left;
+    line-height: 90px; }
+  .header-upper img {
+    margin-top: 20px;
+    margin-right: 60px; }
+  .header-upper .login {
+    float: right; }
+
+.header-lower {
+  background: #8baea2;
+  overflow: hidden; }
+  .header-lower h1, .header-lower .contact-links, .header-lower a {
+    color: white;
+    text-decoration: none;
+    margin: 30px 0; }
+
+.header-lower-left {
+  float: left;
+  width: 50%; }
+
+.header-lower-right {
+  background: #a2beb5;
+  width: 50%;
+  float: right;
+  overflow: hidden;
+  height: 220px; }
+
+.header-lower-right-wrapper {
+  padding: 15px 0; }
+
+.header-stat-wrapper {
+  width: 50%;
+  float: left;
+  text-align: center; }
+
+.header-stat-wrapper:first-child {
+  border-right: solid 1px white;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.header-stat-label {
+  color: white;
+  margin-top: 45px; }
+
+.header-stat-value {
+  color: #003f69;
+  font-size: 65px;
+  margin-bottom: 30px; }
+
+.boxes-wrapper {
+  overflow: hidden; }
+
+.box, .box--stats {
+  background: white;
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  margin-bottom: 4%;
+  padding: 20px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  .box:nth-of-type(3n), .box--stats:nth-of-type(3n) {
+    margin-right: 0; }
+  .box h4, .box--stats h4 {
+    color: #b3b3b3;
+    margin-bottom: 40px; }
+  .box h3, .box h4, .box--stats h3, .box--stats h4 {
+    font-size: 18px; }
+
+.box-table-row {
+  overflow: hidden; }
+
+.box-table-row-title, .box-table-row-contents {
+  float: left;
+  width: 30%;
+  border-top: solid 1px #a5a7aa;
+  padding: 5px 0; }
+
+.box-table-row.last {
+  margin-bottom: 10px; }
+  .box-table-row.last .box-table-row-title {
+    border-bottom: solid 1px #b3b3b3; }
+  .box-table-row.last .box-table-row-contents {
+    border-bottom: solid 1px #a5a7aa; }
+
+.box-table-row-title {
+  color: #b3b3b3;
+  border-top-color: #b3b3b3; }
+
+.box-table-row-title {
+  margin-right: 3%; }
+
+.box-table-row-contents {
+  width: 67%;
+  color: #6d6e70; }
+
+.box--stats {
+  padding: 0; }
+  .box--stats h3 {
+    color: white;
+    background: #8baea2;
+    padding: 10px; }
+  .box--stats img {
+    display: block;
+    padding: 40px;
+    margin: 0 auto; }
+
+.pagination-wrapper {
+  width: 32%;
+  margin: 0 auto;
+  padding-top: 10px;
+  text-align: center;
+  border-top: solid 1px #b3b3b3; }
+  .pagination-wrapper a {
+    text-decoration: none;
+    padding: 0 7px; }
+  .pagination-wrapper .ss-symbolicons {
+    padding: 0; }
+
+.pagination--left {
+  float: left; }
+
+.pagination--right {
+  float: right; }
+
+body, a, p {
+  color: #005d62; }
+
+.play-machine {
+  width: 100%;
+  position: relative; }
+
+.wrapper:after {
+  content: '';
+  display: table;
+  clear: both;
+  height: 80px; }
+
+.wrapper {
+  padding: 0; }
+
+.previous-prints li img {
+  max-width: 150px; }
+
+.previous-prints li {
+  background: white;
+  width: 150px; }
+
+h1 img {
+  position: relative;
+  z-index: 200; }
+
+.play-machine_keys {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  text-align: justify;
+  height: 200px;
+  width: 100%; }
+
+.play-machine-header {
+  background: #e6e4dc;
+  width: 100%;
+  padding-top: 3em;
+  position: fixed;
+  z-index: 200; }
+
+.play-machine_key {
+  position: relative;
+  display: inline-block;
+  background-blend-mode: overlay, normal;
+  width: 12%;
+  margin: 0 0.25%;
+  height: 60px;
+  cursor: pointer;
+  line-height: 1.5em;
+  vertical-align: bottom;
+  transition: height 0s 1.59s linear;
+  font-size: 0; }
+  .play-machine_key:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    bottom: 0;
+    background: red;
+    transition: height 0.1s 11.59s linear; }
+  .play-machine_key.active:after {
+    height: 40px; }
+
+.key-bar {
+  height: 60px;
+  line-height: 3em; }
+
+.key_zero:after {
+  background: #9ae298; }
+
+.key_one:after {
+  background: #30af82; }
+
+.key_two:after {
+  background: #7abcee; }
+
+.key_three:after {
+  background: #5c607d; }
+
+.key_four:after {
+  background: #f3c62f; }
+
+.key_five:after {
+  background: #f09755; }
+
+.key_six:after {
+  background: #e85e5b; }
+
+.key_seven:after {
+  background: #a36a7b; }
+
+.key_zero {
+  color: #9ae298; }
+
+.key_one {
+  color: #30af82; }
+
+.key_two {
+  color: #7abcee; }
+
+.key_three {
+  color: #5c607d; }
+
+.key_four {
+  color: #f3c62f; }
+
+.key_five {
+  color: #f09755; }
+
+.key_six {
+  color: #e85e5b; }
+
+.key_seven {
+  color: #a36a7b; }
+
+.play-machine_paper {
+  width: 100%;
+  position: absolute; }
+
+body {
+  background: white; }
+
+.play-machine canvas {
+  height: 100%;
+  width: 100%;
+  margin-bottom: -6px; }
+
+.play-machine img {
+  width: 100%;
+  display: block;
+  margin: 0; }
+
+/*# sourceMappingURL=main.css.map */

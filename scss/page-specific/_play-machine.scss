@@ -1,0 +1,204 @@
+$numKeys: 8;
+
+body, a, p {
+	color: rgb(0, 93, 98);
+}
+
+.play-machine{
+	// height:200px;
+	// width:1500px;
+	// // margin-top:200px;
+	// top:200px;
+width: 100%;
+position: relative;
+}
+
+.wrapper:after {
+	content: '';
+	display: table;
+	clear: both;
+	height: 80px;
+}
+
+.wrapper {
+	padding: 0;
+}
+
+
+.previous-prints li img {
+	max-width: 150px;
+}
+
+.previous-prints li {
+	background: white;
+	width: 150px;
+}
+
+h1 img {
+	position: relative;
+	z-index: 200;
+}
+
+.play-machine_base{
+	// background:url("images/purty_wood.png");
+	// width:400px;
+	// height:200px;
+}
+
+.play-machine_keys{
+	position:absolute;
+	top:0px;
+	left:0;
+	text-align:justify;
+	// background:url("images/purty_wood.png");
+	height:200px;
+	// box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	// padding:0 5px;
+	width: 100%;
+}
+
+.play-machine-header {
+	background: rgb(230,228,220);
+	width: 100%;
+	padding-top: 3em;
+	position: fixed;
+	z-index: 200;
+}
+
+.play-machine-body {
+	// padding-top: 150px;
+}
+
+.play-machine_key{
+	position:relative;
+	display: inline-block;
+	// background:url("images/purty_wood.png");
+	// background-color:rgba(0,55,99,0.75);
+	background-blend-mode: overlay, normal;
+	// width:40px;
+	width: 12%;
+	margin: 0 0.25%;
+	height:60px;
+	cursor:pointer;
+	line-height: 1.5em;
+	vertical-align: bottom;
+	transition: height 0s 1.59s linear;
+	font-size: 0;
+
+
+	// @for $i from 1 through $numKeys {
+	//     &:nth-child(#{$i+2}) { 
+	//     	background-position:#{$i*40}px 0px;
+	//     	background-color: hsla(360*($i)/($numKeys), 75%, 30%, 0.6);
+	//     }
+	// }
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 60px;
+		bottom: 0;
+		background: red;
+		transition: height 0.1s 11.59s linear;
+	}
+
+	&.active:after{
+		height: 40px;
+		// top: 20px;
+	}
+
+}
+
+.key-bar {
+	height: 60px;
+	line-height: 3em;
+}
+
+.key_zero:after {
+	background: rgb(154,226,152);
+}
+
+.key_one:after {
+	background: rgb(48,175,130);
+}
+
+.key_two:after {
+	background: rgb(122,188,238);
+}
+
+.key_three:after {
+	background: rgb(92,96,125);
+}
+
+.key_four:after {
+	background: rgb(243,198,47);
+}
+
+.key_five:after {
+	background: rgb(240,151,85);
+}
+
+.key_six:after {
+	background: rgb(232,94,91);
+}
+
+.key_seven:after {
+	background: rgb(163,106,123);
+}
+
+.key_zero {
+	color: rgb(154,226,152);
+}
+
+.key_one {
+	color: rgb(48,175,130);
+}
+
+.key_two {
+	color: rgb(122,188,238);
+}
+
+.key_three {
+	color: rgb(92,96,125);
+}
+
+.key_four {
+	color: rgb(243,198,47);
+}
+
+.key_five {
+	color: rgb(240,151,85);
+}
+
+.key_six {
+	color: rgb(232,94,91);
+}
+
+.key_seven {
+	color: rgb(163,106,123);
+}
+
+.play-machine_paper{
+	width:100%;
+	// height:4000px;
+	// background:url("images/handmadepaper.png");
+	position:absolute;
+}
+
+body {
+	background: white;
+}
+
+.play-machine canvas{
+	height:100%;
+	width:100%;
+	margin-bottom: -6px;
+}
+
+.play-machine img {
+	width: 100%;
+	display: block;
+	margin: 0;
+}
