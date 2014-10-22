@@ -84,7 +84,7 @@ Line.prototype.draw = function(ctx) {
     context.moveTo(this.x, this.y);
     context.lineTo(this.x, this.y + this.length);
     context.strokeStyle = this.color;
-    context.lineWidth = 26;
+    context.lineWidth = 40;
     context.stroke();
 }
 

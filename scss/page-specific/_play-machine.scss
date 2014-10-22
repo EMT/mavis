@@ -1,7 +1,7 @@
 $numKeys: 8;
 
 body, a, p {
-	color: rgb(0, 93, 98);
+	color: rgb(0,0,0);
 }
 
 .play-machine{
@@ -17,11 +17,12 @@ position: relative;
 	content: '';
 	display: table;
 	clear: both;
-	height: 80px;
 }
 
 .wrapper {
 	padding: 0;
+	margin: 0 auto;
+	max-width: 65%;
 }
 
 
@@ -34,15 +35,15 @@ position: relative;
 	width: 150px;
 }
 
+h1 {
+	text-align: left;
+	font-size: 3em;
+	color: rgb(255,67,55);
+}
+
 h1 img {
 	position: relative;
 	z-index: 200;
-}
-
-.play-machine_base{
-	// background:url("images/purty_wood.png");
-	// width:400px;
-	// height:200px;
 }
 
 .play-machine_keys{
@@ -50,10 +51,7 @@ h1 img {
 	top:0px;
 	left:0;
 	text-align:justify;
-	// background:url("images/purty_wood.png");
 	height:200px;
-	// box-shadow: 0 0 5px rgba(0,0,0,0.5);
-	// padding:0 5px;
 	width: 100%;
 }
 
@@ -61,21 +59,13 @@ h1 img {
 	background: rgb(230,228,220);
 	width: 100%;
 	padding-top: 3em;
-	// position: fixed;
-	// z-index: 200;
 }
 
-.play-machine-body {
-	// padding-top: 150px;
-}
 
 .play-machine_key{
 	position:relative;
 	display: inline-block;
-	// background:url("images/purty_wood.png");
-	// background-color:rgba(0,55,99,0.75);
 	background-blend-mode: overlay, normal;
-	// width:40px;
 	width: 12%;
 	margin: 0 0.25%;
 	height:60px;
@@ -85,14 +75,6 @@ h1 img {
 	transition: height 0s 1.59s linear;
 	font-size: 0;
 
-
-	// @for $i from 1 through $numKeys {
-	//     &:nth-child(#{$i+2}) { 
-	//     	background-position:#{$i*40}px 0px;
-	//     	background-color: hsla(360*($i)/($numKeys), 75%, 30%, 0.6);
-	//     }
-	// }
-
 	&:after {
 		content: '';
 		position: absolute;
@@ -100,8 +82,6 @@ h1 img {
 		right: 0;
 		height: 60px;
 		bottom: 0;
-		background: red;
-		transition: height 0.1s 11.59s linear;
 	}
 
 	&.active:after{
@@ -182,21 +162,37 @@ h1 img {
 
 .play-machine_paper{
 	width:100%;
-	// height:4000px;
-	// background:url("images/handmadepaper.png");
 	position:absolute;
 	z-index: -1;
+}
+
+.mavis-info p {
+	margin-bottom: 0;
+	font-family: 'Neuzeit';
+}
+
+.key-bar {
+	position: absolute;
+	top: -200px;
 }
 
 body {
 	background: white;
 }
 
+.mavis-info {
+	float: left;
+	width: 17.5%;
+	padding: 2%;
+	box-sizing: border-box;
+	font-size: 0.875em;
+}
+
 .play-machine canvas{
 	height:100%;
 	width:100%;
 	position: relative;
-	// top: -500px;
+	display: block;
 }
 
 .play-machine img {
