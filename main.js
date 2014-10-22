@@ -1,13 +1,77 @@
 var canvas = document.getElementById("js-canvas");
 var context = canvas.getContext("2d");
-var interval = 10000.0; //time between AJAX requests in MS
+var interval = 5000.0; //time between AJAX requests in MS
 var canvasHeight = interval/10;
-var pageWidth = $(document).width();
+var pageWidth = $("#js-canvas").width();
+
+var toTime = new Date().getTime();
+var fromTime = toTime - interval;
+
+var numberOfRowsOfPixels = canvasHeight;
+var currentRow = numberOfRowsOfPixels;
+
+testStartDate = new Date().getTime();
+
+var tempData = [
+    {
+        "`on`": fromTime,
+        duration: "1000",
+        key_id: "0"
+    },
+    {
+        "`on`": fromTime,
+        duration: "2000",
+        key_id: "1"
+    }
+]
+
+var loopID;
+var newLines = [];
+
+function loop(){
+    loopID = window.requestAnimationFrame(loop);
+    currentRow--;
+    
+    timeOfCurrentRow = fromTime + (1 - (currentRow / numberOfRowsOfPixels)) * interval ;
+
+
+    for ( i = 0 ; i < tempData.length ; i++){
+        // console.log(parseInt(tempData[i]["`on`"]), timeOfCurrentRow, parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration), timeOfCurrentRow - fromTime);
+        if (parseInt(tempData[i]["`on`"]) <= timeOfCurrentRow && parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration) >= timeOfCurrentRow){
+            //draw
+            // console.log("fromTime:", fromTime, " toTime:", toTime, " timeOfCurrentRowOffset:", timeOfCurrentRow - fromTime);
+            // console.log("noteStart:", 0, " noteStop", parseInt(tempData[i].duration), " timeOfCurrentRowOffset:", timeOfCurrentRow - fromTime);
+            var keyIndex = Math.abs(7 - tempData[i]["key_id"]);
+            var lineOffset = $(".js-key").width() / 2;
+            var X = (pageWidth / 8) * keyIndex + parseInt(lineOffset + 2.5);
+            var noteColor = $("#" + keyIndex).css('color');
+            line = new Line(X, currentRow, 1, noteColor);
+            newLines.push(line);
+            line.draw(context);
+        } else {
+
+        }
+    }
+
+
+    $(".js-paper").css("top", -1* currentRow + "px");
+    if (currentRow <= 0){
+        $(".js-paper").css("top", -1*numberOfRowsOfPixels + "px");
+        currentRow = numberOfRowsOfPixels;
+        // $("#js-canvas").after("<img src='http://lorempixel.com/1220/500/sports/1/' />")
+            var oldCanvas = canvas.toDataURL("image/png");
+            $('#js-canvas').after('<img src="' + oldCanvas + '" />');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+    }
+}
+
+
+
 
 //fromTime is the time that indicates when the database query should search *from*  
 //toTime is the time that indicates when the database query should search *to*  
-var toTime = new Date().getTime();
-var fromTime = toTime - interval;
+
 
 
 canvas.height = canvasHeight;
@@ -43,8 +107,10 @@ function getAjaxData(){
     fromTime = toTime-interval;
     $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime)+"&to="+toTime, function( data ) {
         if (data.length > 0){
-            drawLines(data);
-            drawLinesRealTime();
+            console.log(data);
+            tempData = data;
+            // drawLines(data);
+            // drawLinesRealTime();
         } else {
 
         }
@@ -78,13 +144,13 @@ function calcNoteLengthInPixels(durationInMS) {
 function drawLinesRealTime() { 
     var orgHeight = $(".js-paper").height();
 
-    $('body').animate({
-        scrollTop: 0
-    }, interval, "linear", function() {
-        saveOldCanvas(function() {
-            $(window).scrollTop($(window).scrollTop() + $('.js-paper img').height());
-        });
-    });
+    // $('body').animate({
+    //     scrollTop: 0
+    // }, interval, "linear", function() {
+    //     saveOldCanvas(function() {
+    //         $(window).scrollTop($(window).scrollTop() + $('.js-paper img').height());
+    //     });
+    // });
 }
 
 // Save the old canvas and prepend it as a Base64 image then clear the canvas and draw on it again.
@@ -122,7 +188,9 @@ function saveOldCanvas(callback) {
 // });
 
 // Padding on load (variable header height) so the lines arn't cut off by the header.
-var headerHeight = $('.play-machine-header').outerHeight();
+// var headerHeight = $('.play-machine-header').outerHeight();
 
-$('.play-machine-body').css('padding-top', headerHeight);
+// $('.play-machine-body').css('padding-top', headerHeight);
+
+loop();
 

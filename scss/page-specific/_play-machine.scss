@@ -61,8 +61,8 @@ h1 img {
 	background: rgb(230,228,220);
 	width: 100%;
 	padding-top: 3em;
-	position: fixed;
-	z-index: 200;
+	// position: fixed;
+	// z-index: 200;
 }
 
 .play-machine-body {
@@ -185,6 +185,7 @@ h1 img {
 	// height:4000px;
 	// background:url("images/handmadepaper.png");
 	position:absolute;
+	z-index: -1;
 }
 
 body {
@@ -194,7 +195,8 @@ body {
 .play-machine canvas{
 	height:100%;
 	width:100%;
-	margin-bottom: -6px;
+	position: relative;
+	// top: -500px;
 }
 
 .play-machine img {

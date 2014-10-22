@@ -419,9 +419,7 @@ h1 img {
 .play-machine-header {
   background: #e6e4dc;
   width: 100%;
-  padding-top: 3em;
-  position: fixed;
-  z-index: 200; }
+  padding-top: 3em; }
 
 .play-machine_key {
   position: relative;
@@ -501,7 +499,8 @@ h1 img {
 
 .play-machine_paper {
   width: 100%;
-  position: absolute; }
+  position: absolute;
+  z-index: -1; }
 
 body {
   background: white; }
@@ -509,7 +508,7 @@ body {
 .play-machine canvas {
   height: 100%;
   width: 100%;
-  margin-bottom: -6px; }
+  position: relative; }
 
 .play-machine img {
   width: 100%;
