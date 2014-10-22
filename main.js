@@ -13,16 +13,7 @@ var currentRow = numberOfRowsOfPixels;
 testStartDate = new Date().getTime();
 
 var tempData = [
-    {
-        "`on`": fromTime,
-        duration: "1000",
-        key_id: "0"
-    },
-    {
-        "`on`": fromTime,
-        duration: "2000",
-        key_id: "1"
-    }
+
 ]
 
 var loopID;
@@ -49,7 +40,7 @@ function loop(){
             newLines.push(line);
             line.draw(context);
         } else {
-            if (parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration) <= timeOfCurrentRow){
+            if (parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration) + 20000 <= timeOfCurrentRow){
                 //note has been and one, delete it
                 tempData.splice(i, 1);
 
@@ -108,8 +99,9 @@ var timeoutID = setInterval(function(){
 
 
 function getAjaxData(){
+    toTime =  new Date().getTime();
     fromTime = toTime-interval;
-    $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime-30000)+"&to="+toTime, function( data ) {
+    $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime-10000)+"&to="+toTime, function( data ) {
         if (data.length > 0){
             console.log(data);
             // tempData = data;
@@ -122,7 +114,6 @@ function getAjaxData(){
         } else {
         }
         // toTime = toTime + interval;
-        toTime =  new Date().getTime();
     });
 } 
 
