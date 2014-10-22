@@ -19,6 +19,9 @@ var tempData = [
 var loopID;
 var newLines = [];
 
+var hasLines = false;
+var timestamped = false;
+
 function loop(){
     loopID = window.requestAnimationFrame(loop);
     currentRow--;
@@ -39,6 +42,7 @@ function loop(){
             line = new Line(X, currentRow, 1, noteColor);
             newLines.push(line);
             line.draw(context);
+            hasLines = true;
         } else {
             if (parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration) + 20000 <= timeOfCurrentRow){
                 //note has been and one, delete it
@@ -54,10 +58,20 @@ function loop(){
         $(".js-paper").css("top", -1*numberOfRowsOfPixels + "px");
         currentRow = numberOfRowsOfPixels;
         // $("#js-canvas").after("<img src='http://lorempixel.com/1220/500/sports/1/' />")
-            var oldCanvas = canvas.toDataURL("image/png");
+        var oldCanvas = canvas.toDataURL("image/png");
+        
+        if (hasLines) {
             $('#js-canvas').after('<img src="' + oldCanvas + '" />');
-            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        else {
+            if (!timestamped) {
+                $('#js-canvas').after('<p class="timestamp">' . timeOfCurrentRow . '</p>');
+                timestamped = true;
+            }
+        }
 
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        hasLines = false;
     }
 }
 
