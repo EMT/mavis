@@ -55,12 +55,6 @@ h1 img {
 	width: 100%;
 }
 
-.play-machine-header {
-	background: rgb(230,228,220);
-	width: 100%;
-	padding-top: 3em;
-}
-
 
 .play-machine_key{
 	position:relative;
@@ -199,4 +193,16 @@ body {
 	width: 100%;
 	display: block;
 	margin: 0;
+}
+
+@media screen and (max-width: 960px) {
+	.mavis-info {
+		width: 100%;
+		float: none;
+		background: rgb(230,228,220);
+	}
+
+	.wrapper {
+		width: 90%;
+	}
 }

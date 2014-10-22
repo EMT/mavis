@@ -65,7 +65,7 @@ function loop(){
         }
         else {
             if (!timestamped) {
-                $('#js-canvas').after('<p class="timestamp">' . timeOfCurrentRow . '</p>');
+                $('#js-canvas').after('<p class="timestamp">' + timeOfCurrentRow + '</p>');
                 timestamped = true;
             }
         }
