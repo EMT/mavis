@@ -49,7 +49,11 @@ function loop(){
             newLines.push(line);
             line.draw(context);
         } else {
+            if (parseInt(tempData[i]["`on`"]) + parseInt(tempData[i].duration) >= timeOfCurrentRow){
+                //note has been and one, delete it
+                tempData.splice(i, 1);
 
+            }
         }
     }
 
@@ -105,10 +109,14 @@ var timeoutID = setInterval(function(){
 
 function getAjaxData(){
     fromTime = toTime-interval;
-    $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime)+"&to="+toTime, function( data ) {
+    $.get( "http://api.mavis.madebyfieldwork.com/actions/get.json?from="+(fromTime-30)+"&to="+toTime, function( data ) {
         if (data.length > 0){
             console.log(data);
-            tempData = data;
+            // tempData = data;
+            // tempData = tempData.concat(data);
+            for (i = 0 ; i < data.length ; i++){
+                tempData.push(data[i])
+            }
             // drawLines(data);
             // drawLinesRealTime();
         } else {
