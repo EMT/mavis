@@ -12,7 +12,7 @@ var keyPresses = [],
 $(function() {
 
 	// load some data
-	mavis.loadKeyPresses(null, new Date().getTime(), 100);
+	mavis.loadKeyPresses(null, new Date().getTime(), 1000);
 
 });
 
