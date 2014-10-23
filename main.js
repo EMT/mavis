@@ -101,7 +101,8 @@ var mavis = {
 		$('.js-paper')
 			.css({height: ((mavis.lastKeyPressOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'})
 			.removeClass('js-paper');
-		$('<p class="timestamp">' + timestamp + '</p>').prependTo($('.js-play-machine'));
+		var date = new Date(timestamp * 1);
+		$('<p class="timestamp">' + date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</p>').prependTo($('.js-play-machine'));
 		$('<div class="play-machine_paper js-paper"></div>').prependTo($('.js-play-machine'));
 
 		mavis.paperStartTime = timestamp;
