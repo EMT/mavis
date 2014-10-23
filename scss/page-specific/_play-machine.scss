@@ -1,16 +1,23 @@
 $numKeys: 8;
 
+@font-face{
+	font-family:"Typewriter";
+	src:url("fonts/typewriter.eot?#iefix");
+	src:url("fonts/typewriter.eot?#iefix") format("eot"),
+		url("fonts/typewriter.woff") format("woff"),
+		url("fonts/typewriter.ttf") format("truetype"),
+		url("fonts/typewriter.svg#typewriter") format("svg");
+}
+
 body, a, p {
 	color: rgb(0,0,0);
+	background: white;
+	font-family: Typewriter;
 }
 
 .play-machine{
-	// height:200px;
-	// width:1500px;
-	// // margin-top:200px;
-	// top:200px;
-width: 100%;
-position: relative;
+	width: 100%;
+	position: relative;
 }
 
 .wrapper:after {
@@ -26,14 +33,7 @@ position: relative;
 }
 
 
-.previous-prints li img {
-	max-width: 150px;
-}
 
-.previous-prints li {
-	background: white;
-	width: 150px;
-}
 
 h1 {
 	text-align: left;
@@ -41,129 +41,14 @@ h1 {
 	color: rgb(255,67,55);
 }
 
-h1 img {
-	position: relative;
-	z-index: 200;
-}
 
-.play-machine_keys{
-	position:absolute;
-	top:0px;
-	left:0;
-	text-align:justify;
-	height:200px;
-	width: 100%;
-}
-
-
-.play-machine_key{
-	position:relative;
-	display: inline-block;
-	background-blend-mode: overlay, normal;
-	width: 12%;
-	margin: 0 0.25%;
-	height:60px;
-	cursor:pointer;
-	line-height: 1.5em;
-	vertical-align: bottom;
-	transition: height 0s 1.59s linear;
-	font-size: 0;
-
-	&:after {
-		content: '';
-		position: absolute;
-		left: 0;
-		right: 0;
-		height: 60px;
-		bottom: 0;
-	}
-
-	&.active:after{
-		height: 40px;
-		// top: 20px;
-	}
-
-}
-
-.key-bar {
-	height: 60px;
-	line-height: 3em;
-}
-
-.key_zero:after {
-	background: rgb(154,226,152);
-}
-
-.key_one:after {
-	background: rgb(48,175,130);
-}
-
-.key_two:after {
-	background: rgb(122,188,238);
-}
-
-.key_three:after {
-	background: rgb(92,96,125);
-}
-
-.key_four:after {
-	background: rgb(243,198,47);
-}
-
-.key_five:after {
-	background: rgb(240,151,85);
-}
-
-.key_six:after {
-	background: rgb(232,94,91);
-}
-
-.key_seven:after {
-	background: rgb(163,106,123);
-}
-
-.key_zero {
-	color: rgb(154,226,152);
-}
-
-.key_one {
-	color: rgb(48,175,130);
-}
-
-.key_two {
-	color: rgb(122,188,238);
-}
-
-.key_three {
-	color: rgb(92,96,125);
-}
-
-.key_four {
-	color: rgb(243,198,47);
-}
-
-.key_five {
-	color: rgb(240,151,85);
-}
-
-.key_six {
-	color: rgb(232,94,91);
-}
-
-.key_seven {
-	color: rgb(163,106,123);
-}
 
 .play-machine_paper{
 	width:100%;
-	position:absolute;
+	position: relative;
 	z-index: -1;
 }
 
-.mavis-info p {
-	margin-bottom: 0;
-	font-family: 'Neuzeit';
-}
 
 .key-bar {
 	position: absolute;
@@ -175,31 +60,64 @@ body {
 }
 
 .mavis-info {
-	float: left;
+	position: fixed;
+	left: 0;
 	width: 17.5%;
 	padding: 2%;
 	box-sizing: border-box;
-	font-size: 0.875em;
+}
+.mavis-info span {
+	color: rgb(34,126,163);
 }
 
-.play-machine canvas{
-	height:100%;
-	width:100%;
-	position: relative;
-	display: block;
+
+
+.key-press {
+	position: absolute;
+	width: 4.5%;
+}
+.key-press-0 {
+	left: 4%;
+	background-color: rgb(154,226,152);
+}
+.key-press-1 {
+	left: 16.5%;
+	background-color: rgb(48,175,130);
+}
+.key-press-2 {
+	left: 29%;
+	background-color: rgb(122,188,238);
+}
+.key-press-3 {
+	left: 41.5%;
+	background-color: rgb(92,96,125);
+}
+.key-press-4 {
+	left: 54%;
+	background-color: rgb(243,198,47);
+}
+.key-press-5 {
+	left: 66.5%;
+	background-color: rgb(240,151,85);
+}
+.key-press-6 {
+	left: 79%;
+	background-color: rgb(232,94,91);
+}
+.key-press-7 {
+	left: 91.5%;
+	background-color: rgb(163,106,123);
 }
 
-.play-machine img {
-	width: 100%;
-	display: block;
-	margin: 0;
+.timestamp {
+	margin: 1em 0 3em;
 }
+
 
 @media screen and (max-width: 960px) {
 	.mavis-info {
 		width: 100%;
-		float: none;
-		background: rgb(230,228,220);
+		background: white;
 	}
 
 	.wrapper {

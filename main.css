@@ -389,8 +389,14 @@ html:hover [class^="ss-"] {
 .pagination--right {
   float: right; }
 
+@font-face {
+  font-family: "Typewriter";
+  src: url("fonts/typewriter.eot?#iefix");
+  src: url("fonts/typewriter.eot?#iefix") format("eot"), url("fonts/typewriter.woff") format("woff"), url("fonts/typewriter.ttf") format("truetype"), url("fonts/typewriter.svg#typewriter") format("svg"); }
 body, a, p {
-  color: black; }
+  color: black;
+  background: white;
+  font-family: Typewriter; }
 
 .play-machine {
   width: 100%;
@@ -406,112 +412,15 @@ body, a, p {
   margin: 0 auto;
   max-width: 65%; }
 
-.previous-prints li img {
-  max-width: 150px; }
-
-.previous-prints li {
-  background: white;
-  width: 150px; }
-
 h1 {
   text-align: left;
   font-size: 3em;
   color: #ff4337; }
 
-h1 img {
-  position: relative;
-  z-index: 200; }
-
-.play-machine_keys {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  text-align: justify;
-  height: 200px;
-  width: 100%; }
-
-.play-machine_key {
-  position: relative;
-  display: inline-block;
-  background-blend-mode: overlay, normal;
-  width: 12%;
-  margin: 0 0.25%;
-  height: 60px;
-  cursor: pointer;
-  line-height: 1.5em;
-  vertical-align: bottom;
-  transition: height 0s 1.59s linear;
-  font-size: 0; }
-  .play-machine_key:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 60px;
-    bottom: 0; }
-  .play-machine_key.active:after {
-    height: 40px; }
-
-.key-bar {
-  height: 60px;
-  line-height: 3em; }
-
-.key_zero:after {
-  background: #9ae298; }
-
-.key_one:after {
-  background: #30af82; }
-
-.key_two:after {
-  background: #7abcee; }
-
-.key_three:after {
-  background: #5c607d; }
-
-.key_four:after {
-  background: #f3c62f; }
-
-.key_five:after {
-  background: #f09755; }
-
-.key_six:after {
-  background: #e85e5b; }
-
-.key_seven:after {
-  background: #a36a7b; }
-
-.key_zero {
-  color: #9ae298; }
-
-.key_one {
-  color: #30af82; }
-
-.key_two {
-  color: #7abcee; }
-
-.key_three {
-  color: #5c607d; }
-
-.key_four {
-  color: #f3c62f; }
-
-.key_five {
-  color: #f09755; }
-
-.key_six {
-  color: #e85e5b; }
-
-.key_seven {
-  color: #a36a7b; }
-
 .play-machine_paper {
   width: 100%;
-  position: absolute;
+  position: relative;
   z-index: -1; }
-
-.mavis-info p {
-  margin-bottom: 0;
-  font-family: 'Neuzeit'; }
 
 .key-bar {
   position: absolute;
@@ -521,28 +430,58 @@ body {
   background: white; }
 
 .mavis-info {
-  float: left;
+  position: fixed;
+  left: 0;
   width: 17.5%;
   padding: 2%;
-  box-sizing: border-box;
-  font-size: 0.875em; }
+  box-sizing: border-box; }
 
-.play-machine canvas {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  display: block; }
+.mavis-info span {
+  color: #227ea3; }
 
-.play-machine img {
-  width: 100%;
-  display: block;
-  margin: 0; }
+.key-press {
+  position: absolute;
+  width: 4.5%; }
+
+.key-press-0 {
+  left: 4%;
+  background-color: #9ae298; }
+
+.key-press-1 {
+  left: 16.5%;
+  background-color: #30af82; }
+
+.key-press-2 {
+  left: 29%;
+  background-color: #7abcee; }
+
+.key-press-3 {
+  left: 41.5%;
+  background-color: #5c607d; }
+
+.key-press-4 {
+  left: 54%;
+  background-color: #f3c62f; }
+
+.key-press-5 {
+  left: 66.5%;
+  background-color: #f09755; }
+
+.key-press-6 {
+  left: 79%;
+  background-color: #e85e5b; }
+
+.key-press-7 {
+  left: 91.5%;
+  background-color: #a36a7b; }
+
+.timestamp {
+  margin: 1em 0 3em; }
 
 @media screen and (max-width: 960px) {
   .mavis-info {
     width: 100%;
-    float: none;
-    background: #e6e4dc; }
+    background: white; }
 
   .wrapper {
     width: 90%; } }
