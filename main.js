@@ -46,7 +46,7 @@ var mavis = {
 	paperStartTime: null,
 	lastKeyPress: null,
 	firstKeyPress: null,
-	lastKeyPressOff: null,
+	lastKeyOff: null,
 
 	// load some data
 	loadKeyPresses: function(from, to, limit) {
@@ -75,7 +75,7 @@ var mavis = {
 		}
 
 		for (var i = 0, len = mavis.keyPresses.length; i < len; i ++) {
-			if (mavis.lastKeyPressOff && mavis.keyPresses[i].on - mavis.lastKeyPressOff > newPaperAfter) {
+			if (mavis.lastKeyOff && mavis.keyPresses[i].on - mavis.lastKeyOff > newPaperAfter) {
 				$paper = mavis.newPaper(mavis.keyPresses[i].on);
 			}
 
@@ -89,24 +89,24 @@ var mavis = {
 			);
 
 			mavis.lastKeyPress = mavis.keyPresses[i];
-			mavis.lastKeyPressOff = mavis.keyPresses[i].on * 1 + mavis.keyPresses[i].duration * 1;
+			mavis.lastKeyOff = Math.max(mavis.keyPresses[i].on * 1 + mavis.keyPresses[i].duration * 1, mavis.lastKeyOff);
 		}
 
-		$paper.css({height: ((mavis.lastKeyPressOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'});
+		$paper.css({height: ((mavis.lastKeyOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'});
 		mavis.keyPresses = [];
 	},
 
 	// start new paper
 	newPaper: function(timestamp) {
 		$('.js-paper')
-			.css({height: ((mavis.lastKeyPressOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'})
+			.css({height: ((mavis.lastKeyOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'})
 			.removeClass('js-paper');
 		var date = new Date(timestamp * 1);
 		$('<p class="timestamp">' + date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</p>').prependTo($('.js-play-machine'));
 		$('<div class="play-machine_paper js-paper"></div>').prependTo($('.js-play-machine'));
 
 		mavis.paperStartTime = timestamp;
-		mavis.lastKeyPressOff = null;
+		mavis.lastKeyOff = null;
 
 		return $('.js-paper');
 	}
