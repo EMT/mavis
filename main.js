@@ -50,7 +50,6 @@ var mavis = {
 
 	// load some data
 	loadKeyPresses: function(from, to, limit) {
-console.log(from);
 		$.get(
 			'http://api.mavis.madebyfieldwork.com/actions/get.json?',
 			{
