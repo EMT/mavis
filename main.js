@@ -12,7 +12,7 @@ $(function() {
 
 	setInterval(function() {
 		if (mavis.lastKeyPress) {
-			mavis.loadKeyPresses(mavis.lastKeyPress.on + 1);
+			mavis.loadKeyPresses((mavis.lastKeyPress.on * 1) + 1);
 		} 
 		else {
 			mavis.loadKeyPresses(null, new Date().getTime(), 800);
@@ -50,6 +50,7 @@ var mavis = {
 
 	// load some data
 	loadKeyPresses: function(from, to, limit) {
+console.log(from);
 		$.get(
 			'http://api.mavis.madebyfieldwork.com/actions/get.json?',
 			{
