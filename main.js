@@ -8,8 +8,8 @@ var milliSecondsPerPixel = 10,
 $(function() {
 
 	// load some data
-	// mavis.loadKeyPresses(null, new Date().getTime(), 800);
-	mavis.loadKeyPresses(null, 1414240121000, 800);
+	mavis.loadKeyPresses(null, new Date().getTime(), 800);
+	// mavis.loadKeyPresses(null, 1414244040000, 800);
 
 	setInterval(function() {
 		if (mavis.lastKeyPress) {
@@ -59,7 +59,6 @@ var mavis = {
 				limit: limit
 			},
 			function(data) {
-		console.log(data);
 				if (data.length) {
 					mavis.keyPresses.push.apply(mavis.keyPresses, data);
 					mavis.renderKeyPresses();
@@ -70,7 +69,7 @@ var mavis = {
 
 	// render key presses
 	renderKeyPresses: function() {
-		$paper = mavis.newPaper(mavis.keyPresses[0].on);
+		$paper = $('.js-paper');
 
 		if (!mavis.firstKeyPress) {
 			mavis.firstKeyPress = mavis.keyPresses[0];
@@ -94,15 +93,16 @@ var mavis = {
 			mavis.lastKeyOff = Math.max(mavis.keyPresses[i].on * 1 + mavis.keyPresses[i].duration * 1, mavis.lastKeyOff);
 		}
 
-		$paper.css({height: ((mavis.lastKeyOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'});
+		mavis.setPaperHeight($paper);
 		mavis.keyPresses = [];
 	},
 
 	// start new paper
 	newPaper: function(timestamp) {
-		$('.js-paper')
-			.css({height: ((mavis.lastKeyOff - mavis.paperStartTime * 1) / milliSecondsPerPixel) + 'px'})
-			.removeClass('js-paper');
+		var $paper = $('.js-paper');
+		mavis.setPaperHeight($paper);
+		$paper.removeClass('js-paper');
+
 		var date = new Date(timestamp * 1);
 		$('<p class="timestamp">' + date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</p>').prependTo($('.js-play-machine'));
 		$('<div class="play-machine_paper js-paper"></div>').prependTo($('.js-play-machine'));
@@ -111,5 +111,21 @@ var mavis = {
 		mavis.lastKeyOff = null;
 
 		return $('.js-paper');
+	},
+
+	// set paper height
+	setPaperHeight: function($paper) {
+		var oldHeight = $paper.height(),
+			newHeight = (mavis.lastKeyOff - mavis.paperStartTime * 1) / milliSecondsPerPixel;
+
+		if ($(window).scrollTop() < 20) {
+			$paper.css({marginTop: '-' + (newHeight - oldHeight) + 'px', height: newHeight + 'px'})
+				.animate({marginTop: '0'}, 400);
+		}
+		else {
+			$paper.css({height: newHeight + 'px'});
+		}
+
+		return $paper;
 	}
 }
