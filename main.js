@@ -8,7 +8,8 @@ var milliSecondsPerPixel = 10,
 $(function() {
 
 	// load some data
-	mavis.loadKeyPresses(null, new Date().getTime(), 800);
+	// mavis.loadKeyPresses(null, new Date().getTime(), 800);
+	mavis.loadKeyPresses(null, 1414240121000, 800);
 
 	setInterval(function() {
 		if (mavis.lastKeyPress) {
@@ -58,6 +59,7 @@ var mavis = {
 				limit: limit
 			},
 			function(data) {
+		console.log(data);
 				if (data.length) {
 					mavis.keyPresses.push.apply(mavis.keyPresses, data);
 					mavis.renderKeyPresses();
