@@ -396,7 +396,7 @@ html:hover [class^="ss-"] {
 body, a, p {
   color: black;
   background: white;
-  font-family: Typewriter; }
+  font-family: Neuzeit; }
 
 .play-machine {
   width: 100%;
@@ -436,8 +436,6 @@ body {
   padding: 2%;
   box-sizing: border-box;
   z-index: 2; }
-  .mavis-info span {
-    color: #227ea3; }
 
 .key-press {
   position: absolute;
